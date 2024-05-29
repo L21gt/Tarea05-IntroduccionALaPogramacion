@@ -25,7 +25,8 @@ function createUser (){
     const calle = prompt("Ingrese la calle");
     const numero = prompt("Ingrese el numero de calle");
 
-    //creacion de la constante user
+    /*creacion de la constante user dentro de la funcion createUser
+    la cual almacenara todos los datos recibidos en la funcion createUser*/
     const user = {
         nombre: nombre,
         apellido: apellido,
@@ -37,9 +38,11 @@ function createUser (){
         }
     };
 
+    //la funcion retornara el user con todos sus atributos
     return user;
 }
 
+//esta funcion mostrara la informacion recopilada de los usuarios
 function mostrarUsuario(usuario) {
     console.log(`Nombre: ${usuario.nombre}`);
     console.log(`Apellido: ${usuario.apellido}`);
@@ -51,18 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarios = [];
     const numeroDeUsuarios = 6;
 
+    //for bucle para recopilar la cantidad de usuarios establecidos
     for (let i =0; i < numeroDeUsuarios; i++) {
         const nuevoUsuario = createUser();
+        //instruccion para ir mostrando cada usuario que vaya siendo creado en el bucle
         usuarios.push(nuevoUsuario);
+        console.log(`Usuario ${i+1}:`);
+        mostrarUsuario(nuevoUsuario);
+        console.log('---'); 
+
     }
 
+    //titulo del resumen final de los 6 usuarios
+    console.log("Este es el resumen final de todos los usuarios ingresados:");
+
+    //instruccion para detallar el resumen de los 6 usuarios al finalizar el bucle
     usuarios.forEach((usuario, index) => {
         console.log(`Usuario ${index + 1}:`);
         mostrarUsuario(usuario);
         console.log('---');
     });
 });
-
-/*const nuevoUsuario = createUser();
-mostrarUsuario(nuevoUsuario);
-console.log(nuevoUsuario);*/
